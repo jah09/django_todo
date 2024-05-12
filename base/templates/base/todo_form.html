@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% if page == 'edit' %}
+       
+        <div class="min-w-screen min-h-screen bg-gray-800 flex items-center justify-center px-5 py-5 flex-col">
+			<div class=" py-2 ">
+                <h3 class="text-white text-2xl ">Add Todo</h3>
+            </div>
+            <div class="w-full mx-auto rounded-lg border border-gray-700 p-8 lg:py-12 lg:px-14 text-gray-300"
+                 style="max-width: 800px"
+                 x-data="app()"
+                 x-init="addItem()">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input id="title"
+                           type="text"
+                           name="title"
+                           value="{{ todo.title }}"
+                           placeholder="Enter title"
+                           class="block w-full py-3 px-1 mt-2 text-gray-800 appearance-none border-b-2 border-gray-100 focus:text-gray-500 focus:outline-none focus:border-gray-200"
+                           required />
+                    <input id="description"
+                           value="{{ todo.description }}"
+                           type="text"
+                           name="description"
+                           placeholder="Enter description"
+                           class="block w-full py-3 px-1 mt-2 text-gray-800 appearance-none border-b-2 border-gray-100 focus:text-gray-500 focus:outline-none focus:border-gray-200"
+                           required />
+                    <button type="submit"
+                            class="w-full py-3 mt-10 bg-gray-700 rounded-sm font-medium text-white uppercase focus:outline-none   hover:shadow-none">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    {% else %}
+        <div class="min-w-screen min-h-screen bg-gray-800 flex items-center justify-center px-5 py-5 flex-col">
+            <div class=" py-2 ">
+                <h3 class="text-white text-2xl ">Add Todo</h3>
+            </div>
+            <div class="w-full mx-auto rounded-lg border border-gray-700 p-8 lg:py-12 lg:px-14 text-gray-300"
+                 style="max-width: 800px"
+                 x-data="app()"
+                 x-init="addItem()">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input id="title"
+                           type="text"
+                           name="title"
+                           placeholder="Enter title"
+                           class="block w-full py-3 px-1 mt-2 text-gray-800 appearance-none border-b-2 border-gray-100 focus:text-gray-500 focus:outline-none focus:border-gray-200"
+                           required />
+                    <input id="description"
+                           type="text"
+                           name="description"
+                           placeholder="Enter description"
+                           class="block w-full py-3 px-1 mt-2 text-gray-800 appearance-none border-b-2 border-gray-100 focus:text-gray-500 focus:outline-none focus:border-gray-200"
+                           required />
+                    <button type="submit"
+                            class="w-full py-3 mt-10 bg-gray-700 rounded-sm font-medium text-white uppercase focus:outline-none   hover:shadow-none">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
